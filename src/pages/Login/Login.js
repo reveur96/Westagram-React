@@ -1,9 +1,14 @@
 import React from 'react'
 import './Login.css'
-import {Link} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const Login = () => {
+  const navigate = useNavigate();
   
+  const goToMain = () => {
+    navigate('./main')
+  };
+
   return (
     <main className='Login_main'>
       <div className="borderBox">
@@ -11,7 +16,7 @@ const Login = () => {
       <form className='login'>
         <input type='text' className='loginId loginInput' name="userId" placeholder="전화번호, 사용자 이름 또는 이메일" />
         <input type="password" className="loginPw loginInput" name="userPw" placeholder="비밀번호" />
-        <Link to='/main'><input type="button" className="loginBtn" value="로그인" /></Link>
+        <input type="button" className="loginBtn" value="로그인" onClick={goToMain}/>
       </form>
         <a href='/' className='findPw'>비밀번호를 잊으셨나요?</a>
       </div>      
